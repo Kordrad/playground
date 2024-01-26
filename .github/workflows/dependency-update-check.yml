@@ -1,8 +1,8 @@
-name: Dependency Update
+name: Daily Dependency Update Check
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Run daily
+    - cron: '0 0 * * *' # Run daily at midnight
   workflow_dispatch:
     inputs:
       logLevel:
@@ -10,18 +10,19 @@ on:
         required: true
         default: 'warning'
       tags:
-        description: 'Test '
-
+        description: 'Test'
 jobs:
   update-check:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
       - run: npm ci
-      - run: npx --yes npm-check-updates
+      - name: Check for outdated dependencies
+        run: npm run dependency-check
       - uses: actions/upload-artifact@v3
         if: always()
         with:
