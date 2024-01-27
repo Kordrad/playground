@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm i
       - name: Check for outdated dependencies
         run: npm run dependency-check
       - uses: actions/upload-artifact@v3
