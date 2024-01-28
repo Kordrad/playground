@@ -1,15 +1,28 @@
 {
   "name": "playground",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dependency-check": "npx --yes npm-check-updates -e 2"
+    "dependency-check": "npx --yes npm-check-updates -e 2",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "prettier": "^3.0.0"
+  "devDependencies": {
+    "@commitlint/cli": "^18",
+    "@commitlint/config-conventional": "^18",
+    "eslint": "^8",
+    "eslint-plugin-prettier": "^5",
+    "eslint-plugin-simple-import-sort": "^10",
+    "eslint-plugin-unicorn": "^49",
+    "eslint-plugin-unused-imports": "^3",
+    "husky": "^8",
+    "lint-staged": "^15",
+    "prettier": "^3",
+    "prettier-plugin-organize-attributes": "^1",
+    "stylelint": "^16",
+    "stylelint-config-standard-scss": "^13"
   }
 }
